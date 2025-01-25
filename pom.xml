@@ -9,12 +9,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <!-- Ensure to use Java 1.8 or above -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- JUnit for unit testing -->
+        <!-- JUnit for unit testing (Optional) -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -36,19 +38,21 @@
                 </configuration>
             </plugin>
 
-            <!-- Jar Plugin to specify the Main-Class -->
+            <!-- Maven Jar Plugin to package the project into a JAR with main class defined -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <archive>
-                        <manifestEntries>
-                            <Main-Class>com.example.App</Main-Class> <!-- Update with your main class -->
-                        </manifestEntries>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.example.App</mainClass> <!-- Your main class here -->
+                        </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>
